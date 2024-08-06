@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.progetto_cinema.UserDashboardController">
+    <BorderPane fx:id="mainBorderPane">
+        <top>
+            <AnchorPane prefHeight="44.0" prefWidth="1100.0" BorderPane.alignment="CENTER">
+                <children>
+                    <AnchorPane fx:id="topForm_anchorpane" layoutX="182.0" layoutY="-78.0" prefHeight="37.0" prefWidth="1100.0" stylesheets="@admin-dashboardstyle.css" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <children>
+                            <Button fx:id="close" layoutX="1048.0" layoutY="2.0" mnemonicParsing="false" onAction="#closeDashboard" prefHeight="25.0" prefWidth="64.0" styleClass="close" stylesheets="@admin-dashboardstyle.css">
+                                <graphic>
+                                    <ImageView fitHeight="16.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                        <image>
+                                            <Image url="@../../../Icone/icons8-x-100.png" />
+                                        </image>
+                                    </ImageView>
+                                </graphic>
+                            </Button>
+                            <Button fx:id="minimize" layoutX="1009.0" layoutY="2.0" mnemonicParsing="false" onAction="#minimizeDashboard" prefHeight="25.0" prefWidth="39.0" styleClass="minimize" stylesheets="@admin-dashboardstyle.css">
+                                <graphic>
+                                    <ImageView fitHeight="20.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                        <image>
+                                            <Image url="@../../../Icone/icons8-minimize-90%20(1).png" />
+                                        </image>
+                                    </ImageView>
+                                </graphic>
+                            </Button>
+                            <Label layoutX="43.0" layoutY="11.0" text="Biglietteria Automatica">
+                                <font>
+                                    <Font name="Microsoft Sans Serif" size="13.0" />
+                                </font>
+                            </Label>
+                            <ImageView fitHeight="60.0" fitWidth="30.0" layoutX="7.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../../../Icone/icons8-biglietto-100.png" />
+                                </image>
+                            </ImageView>
+                        </children>
+                        <styleClass>
+                            <String fx:value="top-form" />
+                            <String fx:value="column-header-background" />
+                        </styleClass>
+                    </AnchorPane>
+                </children>
+            </AnchorPane>
+        </top>
+        <left>
+            <AnchorPane prefHeight="541.0" prefWidth="228.0" styleClass="nav-form" stylesheets="@admin-dashboardstyle.css" BorderPane.alignment="CENTER">
+                <children>
+                    <ImageView fitHeight="130.0" fitWidth="125.0" layoutX="53.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../../../Icone/icons8-user-100.png" />
+                        </image>
+                    </ImageView>
+                    <Label layoutX="73.0" layoutY="139.0" text="Benvenuto" textFill="WHITE">
+                        <font>
+                            <Font size="18.0" />
+                        </font>
+                    </Label>
+                    <Label fx:id="label_utente" alignment="CENTER" layoutX="2.0" layoutY="162.0" prefHeight="43.0" prefWidth="226.0" text="Utente" textFill="WHITE">
+                        <font>
+                            <Font name="System Bold" size="20.0" />
+                        </font>
+                    </Label>
+                    <Button fx:id="esci_btn" layoutX="15.0" layoutY="503.0" mnemonicParsing="false" onAction="#logout" prefHeight="30.0" prefWidth="75.0" styleClass="signout" stylesheets="@admin-dashboardstyle.css" text="Esci" textFill="WHITE">
+                        <graphic>
+                            <ImageView fitHeight="36.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../../../Icone/icons8-exit-100.png" />
+                                </image>
+                            </ImageView>
+                        </graphic>
+                        <font>
+                            <Font name="System Bold" size="13.0" />
+                        </font>
+                    </Button>
+                </children>
+            </AnchorPane>
+        </left>
+        <center>
+            <!-- Spazi vuoti per i contenuti dinamici -->
+        </center>
+        <center>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                <children>
+                    <AnchorPane layoutX="94.0" layoutY="38.0" prefHeight="541.0" prefWidth="884.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <children>
+                            <AnchorPane layoutX="4.0" layoutY="7.0" prefHeight="187.0" prefWidth="877.0" styleClass="bg-white" stylesheets="@user.css">
+                                <children>
+                                    <AnchorPane layoutY="-1.0" prefHeight="189.0" prefWidth="264.0" styleClass="info-card" stylesheets="@user.css">
+                                        <children>
+                                            <Label layoutX="34.0" layoutY="21.0" text="Titolo del Film:">
+                                                <font>
+                                                    <Font name="Microsoft Sans Serif" size="13.0" />
+                                                </font>
+                                            </Label>
+                                            <Label fx:id="selectTitoloFilm_label" layoutX="124.0" layoutY="14.0" prefHeight="30.0" prefWidth="126.0" styleClass="label-info" stylesheets="@user.css">
+                                                <font>
+                                                    <Font name="Microsoft Sans Serif" size="13.0" />
+                                                </font>
+                                            </Label>
+                                            <Button fx:id="select_button" layoutX="84.0" layoutY="150.0" mnemonicParsing="false" onAction="#selezionaSpettacolo" styleClass="insert-btn" stylesheets="@user.css" text="Seleziona Spettacolo" />
+                                            <Label layoutX="66.0" layoutY="62.0" text="Genere:">
+                                                <font>
+                                                    <Font name="Microsoft Sans Serif" size="13.0" />
+                                                </font>
+                                            </Label>
+                                            <Label layoutX="77.0" layoutY="108.0" text="Data:">
+                                                <font>
+                                                    <Font name="Microsoft Sans Serif" size="13.0" />
+                                                </font>
+                                            </Label>
+                                            <Label fx:id="selectGenereFilm_label" layoutX="124.0" layoutY="55.0" prefHeight="30.0" prefWidth="126.0" styleClass="label-info" stylesheets="@user.css">
+                                                <font>
+                                                    <Font name="Microsoft Sans Serif" size="13.0" />
+                                                </font>
+                                            </Label>
+                                            <Label fx:id="selectDataFilm_label" layoutX="124.0" layoutY="101.0" prefHeight="30.0" prefWidth="125.0" styleClass="label-info" stylesheets="@user.css">
+                                                <font>
+                                                    <Font name="Microsoft Sans Serif" size="13.0" />
+                                                </font>
+                                            </Label>
+                                        </children>
+                                    </AnchorPane>
+                                    <TableView fx:id="spettacoli_user_tableview" layoutX="270.0" layoutY="1.0" prefHeight="185.0" prefWidth="601.0" stylesheets="@user.css">
+                                        <columns>
+                                            <TableColumn fx:id="titoloFilm_user_tableview" prefWidth="171.0" text="Titolo del Film" />
+                                            <TableColumn fx:id="genereFilm_user_tableview" minWidth="0.0" prefWidth="114.0" text="Genere" />
+                                            <TableColumn fx:id="sala_user_tableview" minWidth="0.0" prefWidth="48.0" text="Sala" />
+                                            <TableColumn fx:id="data_user_tableview" prefWidth="168.0" text="Data di Proiezione" />
+                                            <TableColumn fx:id="posti_disponibili_tableview1" minWidth="0.0" prefWidth="94.0" text="Posti Disponibili" />
+                                        </columns>
+                                    </TableView>
+                                </children></AnchorPane>
+                            <AnchorPane layoutX="4.0" layoutY="220.0" prefHeight="307.0" prefWidth="877.0" styleClass="bg-white" stylesheets="@user.css">
+                                <children>
+                                    <AnchorPane prefHeight="308.0" prefWidth="264.0" styleClass="info-card" stylesheets="@user.css">
+                                        <children>
+                                            <AnchorPane layoutX="68.0" layoutY="24.0" prefHeight="172.0" prefWidth="135.0" styleClass="bg-white" stylesheets="@user.css">
+                                                <children>
+                                                    <ImageView fitHeight="172.0" fitWidth="136.0" layoutX="-1.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true" />
+                                                </children>
+                                            </AnchorPane>
+                                            <Label alignment="CENTER" layoutX="1.0" layoutY="203.0" prefHeight="22.0" prefWidth="261.0" text="Label">
+                                                <font>
+                                                    <Font name="System Bold" size="17.0" />
+                                                </font>
+                                            </Label>
+                                            <Label layoutX="103.0" layoutY="225.0" text="Titolo film">
+                                                <font>
+                                                    <Font size="14.0" />
+                                                </font>
+                                            </Label>
+                                        </children></AnchorPane>
+                                    <Label layoutX="459.0" layoutY="59.0" text="Quantità">
+                                        <font>
+                                            <Font name="Microsoft Sans Serif" size="18.0" />
+                                        </font>
+                                    </Label>
+                                    <Label layoutX="590.0" layoutY="59.0" text="Prezzo">
+                                        <font>
+                                            <Font name="Microsoft Sans Serif" size="18.0" />
+                                        </font>
+                                    </Label>
+                                    <Label layoutX="272.0" layoutY="14.0" text="Biglietti Acquistati">
+                                        <font>
+                                            <Font name="System Bold Italic" size="24.0" />
+                                        </font>
+                                    </Label>
+                                    <Label layoutX="383.0" layoutY="94.0" text="Biglietti">
+                                        <font>
+                                            <Font size="18.0" />
+                                        </font>
+                                    </Label>
+                                    <Spinner fx:id="numeroBiglietti_spinner" layoutX="459.0" layoutY="94.0" prefHeight="16.0" prefWidth="67.0" stylesheets="@user.css" />
+                                    <Label fx:id="prezzoParziale_label" layoutX="593.0" layoutY="94.0" text="0.0€">
+                                        <font>
+                                            <Font size="18.0" />
+                                        </font>
+                                    </Label>
+                                    <Label layoutX="662.0" layoutY="180.0" text="Totale:">
+                                        <font>
+                                            <Font name="System Bold" size="20.0" />
+                                        </font>
+                                    </Label>
+                                    <Label fx:id="prezzoTotale_label" layoutX="723.0" layoutY="182.0" text="0.0€">
+                                        <font>
+                                            <Font size="18.0" />
+                                        </font>
+                                    </Label>
+                                    <Button fx:id="procediAcquistoBigliettoButton" layoutX="687.0" layoutY="215.0" mnemonicParsing="false" onAction="#procediAcquisto" prefHeight="41.0" prefWidth="73.0" styleClass="buy-btn" stylesheets="@user.css" text="Procedi" />
+                                </children></AnchorPane>
+                        </children>
+                    </AnchorPane>
+                </children>
+            </AnchorPane>
+        </center>
+    </BorderPane>
+</AnchorPane>

@@ -1,0 +1,541 @@
+<!--
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.interfaccia_grafica.DashboardController">
+   <children>
+      <BorderPane prefHeight="600.0" prefWidth="1100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <AnchorPane prefHeight="44.0" prefWidth="1100.0" BorderPane.alignment="CENTER">
+               <children>
+                  <AnchorPane fx:id="topForm_anchorpane" layoutX="182.0" layoutY="-78.0" prefHeight="37.0" prefWidth="1100.0" stylesheets="@admin-dashboardstyle.css" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Button fx:id="close" layoutX="1048.0" layoutY="2.0" mnemonicParsing="false" onAction="#closeDashboard" prefHeight="25.0" prefWidth="64.0" styleClass="close" stylesheets="@admin-dashboardstyle.css">
+                           <graphic>
+                              <ImageView fitHeight="16.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../Icone/icons8-x-100.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button fx:id="minimize" layoutX="1009.0" layoutY="2.0" mnemonicParsing="false" onAction="#minimizeDashboard" prefHeight="25.0" prefWidth="39.0" styleClass="minimize" stylesheets="@admin-dashboardstyle.css">
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../Icone/icons8-minimize-90%20(1).png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Label layoutX="38.0" layoutY="11.0" text="Gestione Cinema">
+                           <font>
+                              <Font name="Microsoft Sans Serif" size="13.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="60.0" fitWidth="30.0" layoutX="7.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../Icone/icons8-gear-100.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <styleClass>
+                        <String fx:value="top-form" />
+                        <String fx:value="column-header-background" />
+                     </styleClass>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </top>
+         <left>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="nav-form" stylesheets="@admin-dashboardstyle.css" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="130.0" fitWidth="125.0" layoutX="38.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Icone/icons8-admin-100%20(1).png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="60.0" layoutY="139.0" text="Benvenuto" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="2.0" layoutY="162.0" prefHeight="17.0" prefWidth="197.0" text="Amministratore" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="gestioneSale_btn" layoutX="13.0" layoutY="243.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="35.0" prefWidth="175.0" styleClass="nav-btn" stylesheets="@admin-dashboardstyle.css" text="Gestione Sale">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../Icone/icons8-auditorium-100%20(1).png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Button fx:id="gestioneFilm_btn" layoutX="13.0" layoutY="278.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="35.0" prefWidth="175.0" styleClass="nav-btn" stylesheets="@admin-dashboardstyle.css" text="Gestione Film">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../Icone/icons8-film-100%20(1).png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Button fx:id="gestioneSpettacoli_btn" layoutX="14.0" layoutY="313.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="35.0" prefWidth="175.0" styleClass="nav-btn" stylesheets="@admin-dashboardstyle.css" text="Gestione Spettacoli">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../Icone/icons8-show-64%20(1).png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Button fx:id="gestionePrezzi_btn" layoutX="13.0" layoutY="348.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="35.0" prefWidth="175.0" styleClass="nav-btn" stylesheets="@admin-dashboardstyle.css" text="Gestione Prezzi">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../Icone/icons8-dollar-100%20(1).png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Button fx:id="esci_btn" layoutX="15.0" layoutY="503.0" mnemonicParsing="false" onAction="#logout" prefHeight="30.0" prefWidth="75.0" styleClass="signout" stylesheets="@admin-dashboardstyle.css" text="Esci" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="36.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../Icone/icons8-exit-100.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="dashboard_btn" layoutX="14.0" layoutY="208.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="35.0" prefWidth="175.0" styleClass="nav-btn" stylesheets="@admin-dashboardstyle.css" text="Dashboard">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../Icone/icons8-dashboard-100.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Button fx:id="gestioneRicavi_btn" layoutX="14.0" layoutY="383.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="35.0" prefWidth="175.0" styleClass="nav-btn" stylesheets="@admin-dashboardstyle.css" text="Gestione Ricavi">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../Icone/icons8-revenue-64%20(1).png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </left>
+         <center>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <AnchorPane fx:id="dashboard_form" prefHeight="556.0" prefWidth="912.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <AnchorPane layoutX="8.0" layoutY="14.0" prefHeight="183.0" prefWidth="895.0" styleClass="bg-white" stylesheets="@admin-dashboardstyle.css">
+                           <children>
+                              <AnchorPane layoutX="14.0" layoutY="12.0" prefHeight="160.0" prefWidth="250.0" stylesheets="@admin-dashboardstyle.css">
+                                 <children>
+                                    <AnchorPane layoutX="-1.0" prefHeight="160.0" prefWidth="78.0" styleClass="card1-left" stylesheets="@admin-dashboardstyle.css">
+                                       <children>
+                                          <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="4.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../Icone/icons8-auditorium-100%20(1).png" />
+                                             </image>
+                                          </ImageView>
+                                       </children></AnchorPane>
+                                    <Label layoutX="169.0" layoutY="127.0" text="Sale Attive" textFill="WHITE">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="dashboard_saleTotali" layoutX="222.0" layoutY="14.0" text="11" textFill="WHITE">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <styleClass>
+                                    <String fx:value="card1" />
+                                    <String fx:value="card" />
+                                 </styleClass>
+                              </AnchorPane>
+                              <AnchorPane layoutX="323.0" layoutY="12.0" prefHeight="160.0" prefWidth="250.0" stylesheets="@admin-dashboardstyle.css">
+                                 <children>
+                                    <AnchorPane layoutX="-1.0" prefHeight="160.0" prefWidth="78.0" styleClass="card2-left" stylesheets="@admin-dashboardstyle.css">
+                                       <children>
+                                          <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="4.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../Icone/icons8-film-100%20(1).png" />
+                                             </image>
+                                          </ImageView>
+                                       </children></AnchorPane>
+                                    <Label layoutX="85.0" layoutY="127.0" text="Film in Programmazione" textFill="WHITE">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="dashboard_filmInProgTotali" layoutX="222.0" layoutY="14.0" text="11" textFill="WHITE">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <styleClass>
+                                    <String fx:value="card2" />
+                                    <String fx:value="card" />
+                                 </styleClass>
+                              </AnchorPane>
+                              <AnchorPane layoutX="631.0" layoutY="12.0" prefHeight="160.0" prefWidth="250.0" stylesheets="@admin-dashboardstyle.css">
+                                 <children>
+                                    <AnchorPane layoutX="-1.0" prefHeight="160.0" prefWidth="78.0" styleClass="card3-left" stylesheets="@admin-dashboardstyle.css">
+                                       <children>
+                                          <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="4.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../Icone/icons8-show-64%20(1).png" />
+                                             </image>
+                                          </ImageView>
+                                       </children></AnchorPane>
+                                    <Label layoutX="91.0" layoutY="127.0" text="Spettacoli in Palinsesto" textFill="WHITE">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="dashboard_spettInPalTotali" layoutX="222.0" layoutY="14.0" text="11" textFill="WHITE">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <styleClass>
+                                    <String fx:value="card1" />
+                                    <String fx:value="card3" />
+                                    <String fx:value="card" />
+                                 </styleClass>
+                              </AnchorPane>
+                           </children></AnchorPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="gestioneSale_form" layoutX="224.0" layoutY="106.0" prefHeight="556.0" prefWidth="912.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <AnchorPane layoutX="14.0" layoutY="16.0" prefHeight="524.0" prefWidth="259.0" styleClass="bg-white" stylesheets="@admin-dashboardstyle.css">
+                           <children>
+                              <Label layoutX="10.0" layoutY="109.0" text="Numero Sala:" AnchorPane.leftAnchor="10.0" />
+                              <TextField fx:id="numeroSala_textfiel" layoutX="89.0" layoutY="105.0" styleClass="add-textfield" stylesheets="@admin-dashboardstyle.css" />
+                              <Label layoutX="33.0" layoutY="150.0" text="Capacità:" AnchorPane.leftAnchor="33.0" />
+                              <TextField fx:id="capacitaSala_textflied" layoutX="89.0" layoutY="145.0" styleClass="add-textfield" stylesheets="@admin-dashboardstyle.css" />
+                              <Button fx:id="aggiungiSala_btn" layoutX="83.0" layoutY="185.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="93.0" styleClass="insert-btn" stylesheets="@admin-dashboardstyle.css" text="Aggiungi" />
+                              <Button fx:id="eliminaSala_btn" layoutX="83.0" layoutY="356.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="93.0" styleClass="delete-btn" stylesheets="@admin-dashboardstyle.css" text="Elimina" />
+                              <Label layoutX="60.0" text="Gestione Sale">
+                                 <font>
+                                    <Font name="System Bold" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="78.0" layoutY="68.0" text="Aggiungi Sala">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="85.0" layoutY="280.0" text="Rimuovi Sala">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="40.0" layoutY="320.0" text="ID Sala:" />
+                              <TextField fx:id="IDRimuoviSala_textfiel" layoutX="90.0" layoutY="315.0" styleClass="add-textfield" stylesheets="@admin-dashboardstyle.css" />
+                           </children></AnchorPane>
+                        <AnchorPane layoutX="296.0" layoutY="16.0" prefHeight="524.0" prefWidth="602.0" styleClass="bg-white" stylesheets="@admin-dashboardstyle.css">
+                           <children>
+                              <TableView fx:id="sala_tableview" layoutX="7.0" layoutY="64.0" prefHeight="456.0" prefWidth="589.0" stylesheets="@admin-dashboardstyle.css">
+                                <columns>
+                                  <TableColumn fx:id="numeroSalaCol_tableview" prefWidth="296.0" text="Numero Sala" />
+                                  <TableColumn fx:id="capacitaCol_tableview" prefWidth="89.0" text="Capacità" />
+                                    <TableColumn fx:id="IDCol_tableview" prefWidth="209.0" text="ID" />
+                                </columns>
+                              </TableView>
+                              <Label layoutX="274.0" layoutY="20.0" text="Sale Disponibili">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children></AnchorPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="gestioneFilm_form" layoutX="10.0" layoutY="10.0" prefHeight="566.0" prefWidth="922.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <AnchorPane fx:id="aggiungiFilm_anchorPane" layoutX="14.0" layoutY="16.0" prefHeight="524.0" prefWidth="259.0" styleClass="bg-white" stylesheets="@admin-dashboardstyle.css">
+                           <children>
+                              <AnchorPane layoutX="64.0" layoutY="58.0" prefHeight="163.0" prefWidth="132.0" styleClass="bg-white" stylesheets="@admin-dashboardstyle.css">
+                                 <children>
+                                    <ImageView fx:id="aggiungiFilm_imageview" fitHeight="163.0" fitWidth="136.0" pickOnBounds="true" preserveRatio="true" />
+                                 </children>
+                              </AnchorPane>
+                              <Label layoutX="10.0" layoutY="281.0" text="Titolo del Film:" AnchorPane.leftAnchor="10.0" />
+                              <TextField fx:id="titoloFilm_textfiel" layoutX="89.0" layoutY="277.0" styleClass="add-textfield" stylesheets="@admin-dashboardstyle.css" />
+                              <Label layoutX="47.0" layoutY="321.0" text="Durata:" AnchorPane.leftAnchor="47.0" />
+                              <TextField fx:id="durataFilm_textfield" layoutX="89.0" layoutY="317.0" styleClass="add-textfield" stylesheets="@admin-dashboardstyle.css" />
+                              <Label layoutX="43.0" layoutY="362.0" text="Genere:" AnchorPane.leftAnchor="43.0" />
+                              <TextField fx:id="genereFilm_textfield" layoutX="89.0" layoutY="358.0" styleClass="add-textfield" stylesheets="@admin-dashboardstyle.css" />
+                              <Button fx:id="aggiungiFilm_btn" layoutX="89.0" layoutY="391.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="93.0" styleClass="insert-btn" stylesheets="@admin-dashboardstyle.css" text="Aggiungi" />
+                              <Label layoutX="62.0" text="Gestione Film">
+                                 <font>
+                                    <Font name="System Bold" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="rimuoviFilm_btn" layoutX="130.0" layoutY="482.0" mnemonicParsing="false" onAction="#switchFilm" styleClass="comeback-btn" stylesheets="@admin-dashboardstyle.css" text="Rimuovi Film">
+                                 <graphic>
+                                    <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../Icone/icons8-forward-100.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="importaFilmImageview_btn" layoutX="100.0" layoutY="227.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="71.0" styleClass="insert-btn" stylesheets="@admin-dashboardstyle.css" text="Importa" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="296.0" layoutY="16.0" prefHeight="524.0" prefWidth="602.0" styleClass="bg-white" stylesheets="@admin-dashboardstyle.css">
+                           <children>
+                              <TableView fx:id="film_tableview" layoutX="7.0" layoutY="64.0" prefHeight="456.0" prefWidth="589.0" stylesheets="@admin-dashboardstyle.css">
+                                 <columns>
+                                    <TableColumn fx:id="titoloFilmCol_tableview" prefWidth="251.0" text="Titolo del FIlm" />
+                                    <TableColumn fx:id="durataFilmCol_tableview" minWidth="0.0" prefWidth="113.0" text="Durata" />
+                                    <TableColumn fx:id="genereFilmCol_tableview" minWidth="0.0" prefWidth="141.0" text="Genere" />
+                                    <TableColumn fx:id="IDFilmCol_tableview" prefWidth="82.0" text="ID" />
+                                 </columns>
+                              </TableView>
+                              <Label layoutX="211.0" layoutY="14.0" text="Film in Programmazione">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="rimuoviFilm_anchorpane" layoutX="14.0" layoutY="15.0" prefHeight="524.0" prefWidth="258.0" styleClass="bg-white" stylesheets="@admin-dashboardstyle.css" visible="false" AnchorPane.bottomAnchor="17.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="640.0" AnchorPane.topAnchor="15.0">
+                           <children>
+                              <Label layoutX="62.0" text="Gestione Film">
+                                 <font>
+                                    <Font name="System Bold" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="eliminaFilm_btn" layoutX="76.0" layoutY="127.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="93.0" styleClass="delete-btn" stylesheets="@admin-dashboardstyle.css" text="Elimina" />
+                              <Label layoutX="78.0" layoutY="51.0" text="Rimuovi Film">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="33.0" layoutY="91.0" text="ID Film:" />
+                              <TextField fx:id="IDRimuoviFIlm_textfield" layoutX="83.0" layoutY="86.0" styleClass="add-textfield" stylesheets="@admin-dashboardstyle.css" />
+                              <Button fx:id="tornaIndietroRimuoviFilm_btn" layoutX="9.0" layoutY="481.0" mnemonicParsing="false" onAction="#switchFilm" styleClass="comeback-btn" stylesheets="@admin-dashboardstyle.css" text="Torna indietro">
+                                 <graphic>
+                                    <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../Icone/icons8-back-100.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic></Button>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="gestioneSpettacoli_form" layoutX="10.0" layoutY="10.0" prefHeight="576.0" prefWidth="932.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <AnchorPane fx:id="aggElimSpett_anchorpane" layoutX="14.0" layoutY="16.0" prefHeight="524.0" prefWidth="259.0" styleClass="bg-white" stylesheets="@admin-dashboardstyle.css">
+                           <children>
+                              <Label layoutX="64.0" layoutY="89.0" text="Film:" AnchorPane.leftAnchor="64.0" />
+                              <TextField fx:id="aggFilmSpett_textfield" layoutX="92.0" layoutY="84.0" styleClass="add-textfield" stylesheets="@admin-dashboardstyle.css" />
+                              <Label layoutX="64.0" layoutY="129.0" text="Sala:" AnchorPane.leftAnchor="64.0" />
+                              <TextField fx:id="aggSalaSpett_textfield" layoutX="92.0" layoutY="124.0" styleClass="add-textfield" stylesheets="@admin-dashboardstyle.css" />
+                              <Label layoutX="7.0" layoutY="174.0" text="Orario di proiezione:" AnchorPane.leftAnchor="7.0" />
+                              <TextField fx:id="aggOrarioSpett_textfield" layoutX="116.0" layoutY="169.0" prefHeight="27.0" prefWidth="135.0" styleClass="add-textfield" stylesheets="@admin-dashboardstyle.css" />
+                              <Label layoutX="66.0" layoutY="334.0" text="ID Spettacolo:" AnchorPane.leftAnchor="66.0" />
+                              <TextField fx:id="IDRimuoviSpett_textfield" layoutX="150.0" layoutY="329.0" prefHeight="27.0" prefWidth="101.0" styleClass="add-textfield" stylesheets="@admin-dashboardstyle.css" />
+                              <Button fx:id="aggiungiSpettacolo_btn" layoutX="83.0" layoutY="209.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="93.0" styleClass="insert-btn" stylesheets="@admin-dashboardstyle.css" text="Aggiungi" />
+                              <Button fx:id="eliminaSpettacolo_btn" layoutX="83.0" layoutY="372.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="93.0" styleClass="delete-btn" stylesheets="@admin-dashboardstyle.css" text="Elimina" />
+                              <Label layoutX="39.0" text="Gestione Spettacoli">
+                                 <font>
+                                    <Font name="System Bold" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="61.0" layoutY="51.0" text="Aggiungi Spettacolo">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="60.0" layoutY="297.0" text="Elimina Spettacolo">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="switchModificaSpett_btn" layoutX="90.0" layoutY="481.0" mnemonicParsing="false" onAction="#switchSpettacolo" styleClass="comeback-btn" stylesheets="@admin-dashboardstyle.css" text="Modifica Spettacolo">
+                                 <graphic>
+                                    <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../Icone/icons8-forward-100.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="296.0" layoutY="16.0" prefHeight="524.0" prefWidth="602.0" styleClass="bg-white" stylesheets="@admin-dashboardstyle.css">
+                           <children>
+                              <TableView fx:id="spettacolo_tableview" layoutX="7.0" layoutY="64.0" prefHeight="456.0" prefWidth="589.0" stylesheets="@admin-dashboardstyle.css">
+                                 <columns>
+                                    <TableColumn fx:id="spettacoloCol_tableview" prefWidth="174.0" text="Spettacolo" />
+                                    <TableColumn fx:id="filmCol_tableview" minWidth="0.0" prefWidth="159.0" text="Film" />
+                                    <TableColumn fx:id="salaCol_tableview" minWidth="0.0" prefWidth="61.0" text="Sala" />
+                                    <TableColumn fx:id="orarioProiezioneCol_tableview" prefWidth="123.0" text="Orario Proiezione" />
+                                    <TableColumn fx:id="IDSpettacoloCol_tableview" prefWidth="57.0" text="ID" />
+                                 </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="modSpettacolo_anchorpane" layoutX="13.0" layoutY="14.0" prefHeight="526.0" prefWidth="263.0" styleClass="bg-white" stylesheets="@admin-dashboardstyle.css" visible="false" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="636.0" AnchorPane.topAnchor="14.0">
+                           <children>
+                              <Label layoutX="64.0" layoutY="105.0" text="Film:" AnchorPane.leftAnchor="64.0" />
+                              <TextField fx:id="modFilmSpett_textfield" layoutX="94.0" layoutY="100.0" styleClass="add-textfield" stylesheets="@admin-dashboardstyle.css" />
+                              <Button fx:id="modificaFilmSpett_btn" layoutX="91.0" layoutY="133.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="93.0" styleClass="modify-btn" stylesheets="@admin-dashboardstyle.css" text="Modifica" />
+                              <Label layoutX="39.0" text="Gestione Spettacoli">
+                                 <font>
+                                    <Font name="System Bold" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="81.0" layoutY="38.0" text="Modifica Film">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="69.0" layoutY="72.0" text="ID Spettacolo:" />
+                              <TextField fx:id="IDmodFilmSpett_textfield" layoutX="154.0" layoutY="67.0" prefHeight="27.0" prefWidth="101.0" styleClass="add-textfield" stylesheets="@admin-dashboardstyle.css" />
+                              <Label layoutX="58.0" layoutY="251.0" text="Sala:" />
+                              <TextField fx:id="modSalaSpett_textfield" layoutX="89.0" layoutY="246.0" styleClass="add-textfield" stylesheets="@admin-dashboardstyle.css" />
+                              <Button fx:id="modificaSalaSpett_btn" layoutX="86.0" layoutY="279.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="93.0" styleClass="modify-btn" stylesheets="@admin-dashboardstyle.css" text="Modifica" />
+                              <Label layoutX="82.0" layoutY="180.0" text="Modifica Sala">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="64.0" layoutY="218.0" text="ID Spettacolo:" />
+                              <TextField fx:id="IDmodSalaSpett_textfield" layoutX="149.0" layoutY="213.0" prefHeight="27.0" prefWidth="101.0" styleClass="add-textfield" stylesheets="@admin-dashboardstyle.css" />
+                              <Label layoutX="44.0" layoutY="398.0" text="Orario:" />
+                              <TextField fx:id="modOrarioSpett_textfield" layoutX="87.0" layoutY="393.0" styleClass="add-textfield" stylesheets="@admin-dashboardstyle.css" />
+                              <Button fx:id="modificaOrarioSpett_btn" layoutX="83.0" layoutY="426.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="93.0" styleClass="modify-btn" stylesheets="@admin-dashboardstyle.css" text="Modifica" />
+                              <Label layoutX="81.0" layoutY="330.0" text="Modifica Orario">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="56.0" layoutY="365.0" text="ID Spettacolo:" />
+                              <TextField fx:id="IDmodOrarioSpett_textfield" layoutX="147.0" layoutY="360.0" prefHeight="27.0" prefWidth="101.0" styleClass="add-textfield" stylesheets="@admin-dashboardstyle.css" />
+                              <Button fx:id="switchTornaIndietroSpett_btn" layoutX="6.0" layoutY="491.0" mnemonicParsing="false" onAction="#switchSpettacolo" styleClass="comeback-btn" stylesheets="@admin-dashboardstyle.css" text="Torna Indietro">
+                                 <graphic>
+                                    <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../Icone/icons8-back-100.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic></Button>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="gestionePrezzi_form" layoutX="10.0" layoutY="10.0" prefHeight="566.0" prefWidth="922.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <AnchorPane layoutX="14.0" layoutY="16.0" prefHeight="524.0" prefWidth="259.0" styleClass="bg-white" stylesheets="@admin-dashboardstyle.css">
+                           <children>
+                              <Label layoutX="42.0" layoutY="131.0" text="Prezzo:" AnchorPane.leftAnchor="42.0" />
+                              <TextField fx:id="impostaPrzIntero_textflied" layoutX="91.0" layoutY="126.0" styleClass="add-textfield" stylesheets="@admin-dashboardstyle.css" />
+                              <Button fx:id="impostaPrzIntero_btn" layoutX="85.0" layoutY="167.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="93.0" styleClass="insert-btn" stylesheets="@admin-dashboardstyle.css" text="Imposta" />
+                              <Label layoutX="60.0" text="Gestione Prezzi">
+                                 <font>
+                                    <Font name="System Bold" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="26.0" layoutY="91.0" text="Imposta Prezzo Biglietto Intero">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="42.0" layoutY="318.0" text="Prezzo:" />
+                              <TextField fx:id="impostaPrzRidotto_textflied" layoutX="91.0" layoutY="313.0" styleClass="add-textfield" stylesheets="@admin-dashboardstyle.css" />
+                              <Button fx:id="impostaPrzRidotto_btn" layoutX="87.0" layoutY="353.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="93.0" styleClass="insert-btn" stylesheets="@admin-dashboardstyle.css" text="Imposta" />
+                              <Label layoutX="13.0" layoutY="276.0" text="Imposta Prezzo Biglietto Ridotto">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="296.0" layoutY="16.0" prefHeight="524.0" prefWidth="602.0" styleClass="bg-white" stylesheets="@admin-dashboardstyle.css">
+                           <children>
+                              <TableView fx:id="prezzi_tableview" layoutX="7.0" layoutY="64.0" prefHeight="456.0" prefWidth="589.0" stylesheets="@admin-dashboardstyle.css">
+                                 <columns>
+                                    <TableColumn fx:id="prezzoInteroCol_tableview" prefWidth="311.0" text="Prezzo Intero" />
+                                    <TableColumn fx:id="prezzoRidottoCol_tableview" prefWidth="276.0" text="Prezzo Ridotto" />
+                                 </columns>
+                              </TableView>
+                              <Label layoutX="233.0" layoutY="22.0" text="Storico Prezzi">
+                                 <font>
+                                    <Font name="System Bold" size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="gestioneRicavi_form" layoutX="10.0" layoutY="10.0" prefHeight="576.0" prefWidth="932.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <AnchorPane layoutX="14.0" layoutY="16.0" prefHeight="222.0" prefWidth="259.0" styleClass="bg-white" stylesheets="@admin-dashboardstyle.css">
+                           <children>
+                              <Label layoutX="52.0" text="Gestione Ricavi">
+                                 <font>
+                                    <Font name="System Bold" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="generaRepRicavi_btn" layoutX="81.0" layoutY="120.0" mnemonicParsing="false" styleClass="report-btn" stylesheets="@admin-dashboardstyle.css" text="Genera Report" />
+                              <Label layoutX="80.0" layoutY="78.0" text="Report Ricavi">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="296.0" layoutY="16.0" prefHeight="524.0" prefWidth="602.0" styleClass="bg-white" stylesheets="@admin-dashboardstyle.css">
+                           <children>
+                              <TableView fx:id="ricavi_tableview" layoutX="152.0" layoutY="51.0" prefHeight="456.0" prefWidth="300.0" stylesheets="@admin-dashboardstyle.css">
+                                 <columns>
+                                    <TableColumn fx:id="ricaviSalaCol_tableview" prefWidth="78.0" text="Sala" />
+                                    <TableColumn fx:id="affluenzaSalaCol_tableview" minWidth="0.0" prefWidth="87.0" text="Affluenza" />
+                                    <TableColumn fx:id="ricaviRicavoCol_tableview" prefWidth="132.0" text="Ricavo" />
+                                 </columns>
+                              </TableView>
+                              <Label layoutX="271.0" layoutY="14.0" text="Ricavi">
+                                 <font>
+                                    <Font name="System Bold" size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
